@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOCA CHEATS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #330066 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container, .panel-container {
+            background: rgba(30, 0, 60, 0.95);
+            border: 2px solid #9d4edd;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.5);
+            width: 400px;
+        }
+
+        .panel-container {
+            width: 600px;
+            display: none;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #c77dff;
+            font-size: 36px;
+            text-shadow: 0 0 20px rgba(199, 125, 255, 0.8);
+            letter-spacing: 3px;
+        }
+
+        .logo p {
+            color: #9d4edd;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #c77dff;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(157, 78, 221, 0.1);
+            border: 1px solid #9d4edd;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #c77dff;
+            box-shadow: 0 0 10px rgba(199, 125, 255, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #9d4edd 0%, #c77dff 100%);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.6);
+        }
+
+        .error {
+            color: #ff6b9d;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(157, 78, 221, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .section h2 {
+            color: #c77dff;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px solid #9d4edd;
+            padding-bottom: 10px;
+        }
+
+        .option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .option label {
+            color: #e0aaff;
+            font-size: 14px;
+        }
+
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #555;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toggle.active {
+            background: #9d4edd;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s;
+        }
+
+        .toggle.active::after {
+            left: 27px;
+        }
+
+        .slider-container {
+            margin-top: 10px;
+        }
+
+        .slider-container input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: rgba(157, 78, 221, 0.3);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .slider-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #c77dff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-value {
+            color: #c77dff;
+            font-size: 13px;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .status {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 8px;
+            color: #00ff88;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .game-btn {
+            padding: 15px;
+            background: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 100%);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        .game-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.5);
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #c44569 0%, #e94560 100%);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            float: right;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div class="login-container" id="loginScreen">
+        <div class="logo">
+            <h1>LYNQ CHEATS</h1>
+            <p>Sistema de Auxílio Premium</p>
+        </div>
+        <div class="input-group">
+            <label for="password">Senha de Acesso</label>
+            <input type="password" id="password" placeholder="Digite a senha">
+        </div>
+        <button class="btn" onclick="login()">ENTRAR</button>
+        <div class="error" id="errorMsg">❌ Senha incorreta!</div>
+    </div>
+
+    <!-- Painel Principal -->
+    <div class="panel-container" id="mainPanel">
+        <button class="logout-btn" onclick="logout()">Sair</button>
+        <div class="logo">
+            <h1>LYNX CHEATS</h1>
+            <p>Painel de Controle</p>
+        </div>
+
+        <div class="status">✓ Sistema Ativo e Funcionando</div>
+
+        <!-- Seção de Lançamento -->
+        <div class="section">
+            <h2>🎮 Lançar Jogo</h2>
+            <button class="game-btn" onclick="launchGame()">▶ Iniciar Jogo com Auxílios</button>
+            <button class="game-btn" onclick="alert('Função em desenvolvimento!')">⚙️ Configurações Avançadas</button>
+        </div>
+
+        <!-- Seção de Mira -->
+        <div class="section">
+            <h2>🎯 Auxílio de Mira</h2>
+            <div class="option">
+                <label>Aimbot</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+            <div class="option">
+                <label>Suavização de Mira</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+            <div class="slider-container">
+                <label style="color: #e0aaff; font-size: 13px;">Intensidade da Suavização</label>
+                <input type="range" min="1" max="100" value="50" oninput="updateSlider(this, 'smooth')">
+                <div class="slider-value" id="smooth-value">50%</div>
+            </div>
+        </div>
+
+        <!-- Seção de Recoil -->
+        <div class="section">
+            <h2>🔫 Controle de Recoil</h2>
+            <div class="option">
+                <label>Anti-Recoil Ativo</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+            <div class="slider-container">
+                <label style="color: #e0aaff; font-size: 13px;">Redução de Recoil</label>
+                <input type="range" min="0" max="100" value="75" oninput="updateSlider(this, 'recoil')">
+                <div class="slider-value" id="recoil-value">75%</div>
+            </div>
+        </div>
+
+        <!-- Seção de FOV -->
+        <div class="section">
+            <h2>👁️ Campo de Visão (FOV)</h2>
+            <div class="option">
+                <label>FOV Customizado</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+            <div class="slider-container">
+                <label style="color: #e0aaff; font-size: 13px;">Valor do FOV</label>
+                <input type="range" min="60" max="120" value="90" oninput="updateSlider(this, 'fov')">
+                <div class="slider-value" id="fov-value">90°</div>
+            </div>
+        </div>
+
+        <!-- Seção Visual -->
+        <div class="section">
+            <h2>👀 Auxílios Visuais</h2>
+            <div class="option">
+                <label>ESP (Wallhack)</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+            <div class="option">
+                <label>Mostrar Vida dos Inimigos</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+            <div class="option">
+                <label>Radar Customizado</label>
+                <div class="toggle" onclick="toggleOption(this)"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'JOAQUIM-AUXILIO123';
+            
+            if (password === correctPassword) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainPanel').style.display = 'block';
+                document.getElementById('errorMsg').style.display = 'none';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+
+        function logout() {
+            document.getElementById('loginScreen').style.display = 'block';
+            document.getElementById('mainPanel').style.display = 'none';
+            document.getElementById('password').value = '';
+        }
+
+        function toggleOption(element) {
+            element.classList.toggle('active');
+        }
+
+        function updateSlider(slider, type) {
+            let value = slider.value;
+            let suffix = '%';
+            
+            if (type === 'fov') {
+                suffix = '°';
+            }
+            
+            document.getElementById(type + '-value').textContent = value + suffix;
+        }
+
+        function launchGame() {
+            alert('🎮 Iniciando jogo com auxílios ativados...\n\nNota: Esta é apenas uma interface demonstrativa.');
+        }
+
+        // Permitir login com Enter
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                login();
+            }
+        });
+    </script>
+</body>
+</html>
